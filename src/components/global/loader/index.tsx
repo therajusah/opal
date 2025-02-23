@@ -1,10 +1,22 @@
-import React from 'react'
+import React from "react";
+import { Spinner } from "./spinner";
+import { cn } from "@/lib/utils";
 
+type Props = {
+  state: string;
+  color?: string;
+  className?: string;
+  children?: React.ReactNode;
+};
 
-const index = ( ) => {
-  return (
-    <div>index</div>
-  )
-}
+const Loader = ({ state, color, className, children }: Props) => {
+  return state ? (
+    <div className={cn(className)}>
+      <Spinner color={color} />
+    </div>
+  ) : (
+    children
+  );
+};
 
-export default index
+export default Loader;
